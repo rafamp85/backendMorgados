@@ -27,7 +27,8 @@ var registerRoutes = require('./routes/register');
 
 
 // Conexión a la base de datos
-mongoose.connection.openUri('mongodb://localhost:27017/morgadosDB', ( err, res ) => {
+//mongoose.connection.openUri('mongodb://localhost:27017/morgadosDB', ( err, res ) => {
+mongoose.connection.openUri('mongodb+srv://dbUser:dbUserPassword@morgado-vsfwv.mongodb.net/test?retryWrites=true', ( err, res ) => {
 
     if ( err ) throw err;
 
