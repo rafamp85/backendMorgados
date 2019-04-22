@@ -2,9 +2,11 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var http = require('http');
 
 // Inicializar variables
 var app = express();
+var server = http.createServer(app);
 
 
 app.use(function(req, res, next) {
@@ -35,6 +37,7 @@ mongoose.connection.openUri('mongodb+srv://dbUser:dbUserPassword@morgado-vsfwv.m
     console.log('Database is: \x1b[32m%s\x1b[0m', 'online');
 });
 
+app.set('port', process.env.PORT || 3000);
 
 // Rutas
 app.use( '/register', registerRoutes );
@@ -42,6 +45,6 @@ app.use( '/', appRoutes );
 
 
 // Escuchar peticiones
-app.listen( 3000, () => {
+server.listen( app.get('port'), () => {
     console.log('Express server puerto 3000: \x1b[32m%s\x1b[0m', 'online');
 });
