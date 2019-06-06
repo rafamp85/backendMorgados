@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-vapid": "node ./node_modules/web-push/src/cli.js generate-vapid-keys --json > vapid.json"
   },
   "author": "Rafael Morales Parra",
   "license": "MIT",
@@ -15,7 +16,10 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "moment": "^2.24.0",
     "mongoose": "^5.5.1",
-    "mongoose-unique-validator": "^2.0.2"
+    "mongoose-unique-validator": "^2.0.2",
+    "node-cron": "^2.0.3",
+    "web-push": "^3.3.5"
   }
 }

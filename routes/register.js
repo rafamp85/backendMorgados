@@ -10,7 +10,7 @@ var Register = require('../models/register');
 app.get('/', (req, res, next) =>  {
 
     Register.find( {}, ( err, registers ) => {
-        
+
         if ( err ) {
             return res.status( 500 ).json({
                 ok: false,
@@ -61,6 +61,48 @@ app.post( '/', ( req, res ) => {
         });
     });
 });
+
+
+
+// ==================================
+// Obtener un Registro por fecha
+// ==================================
+app.get('/:date', (req, res) =>  {
+
+    var date = req.params.date;
+    var regex = new RegExp(date, 'i');
+
+    var promesa = searchByDate( date, regex );
+
+    promesa.then(registers => {
+
+        return res.status(200).json({
+            ok: true,
+            registers
+        });
+
+    });
+
+});
+
+
+function searchByDate(date, regex) {
+
+    return new Promise((resolve, reject) => {
+
+        Register.find({ nextVisit: regex })
+            .exec((err, registers) => {
+
+                if (err) {
+                    reject('Error al cargar Registros', err);
+                } else {
+                    resolve(registers);
+                }
+            });
+
+    });
+}
+
 
 
 module.exports = app;
