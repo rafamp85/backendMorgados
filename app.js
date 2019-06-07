@@ -30,24 +30,16 @@ var appRoutes = require('./routes/app');
 var registerRoutes = require('./routes/register');
 var notificationRoutes = require('./routes/notification');
 
-// Conexión a la base de datos
-// mongoose.connection.openUri('mongodb://localhost:27017/morgadosDB', ( err, res ) => {
-// // mongoose.connection.openUri('mongodb+srv://dbUser:dbUserPassword@morgado-vsfwv.mongodb.net/test?retryWrites=true', ( err, res ) => {
 
-//     if ( err ) throw err;
-
-//     console.log('Database is: \x1b[32m%s\x1b[0m', 'online');
-// });
-
-
-mongoose.connect( 'mongodb://localhost:27017/morgadosDB', { useNewUrlParser: true }, ( err, res ) => {
-// mongoose.connect( 'mongodb+srv://dbUser:dbUserPassword@morgado-vsfwv.mongodb.net/test?retryWrites=true', { useNewUrlParser: true }, ( err, res ) => {
+// ### AMBIENTE LOCAL
+// mongoose.connect( 'mongodb://localhost:27017/morgadosDB', { useNewUrlParser: true }, ( err, res ) => {
+mongoose.connect( 'mongodb+srv://dbUser:dbUserPassword@morgado-vsfwv.mongodb.net/test?retryWrites=true&w=majority',  { useNewUrlParser: true }, ( err, res ) => {    
 
     if ( err ) throw err;
 
     console.log('Database is: \x1b[32m%s\x1b[0m', 'online');
 
-});
+}).catch( console.log );
 
 
 app.set('port', process.env.PORT || 3000);

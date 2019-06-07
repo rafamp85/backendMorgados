@@ -9,7 +9,7 @@ module.exports.getRegistersByDate = () => {
 
 	var today = moment().format('DD-MM-YYYY');
 
-	var task = cron.schedule('22 02 * * *', () => {
+	var task = cron.schedule('15 02 * * *', () => {
     	http.get( 'http://localhost:3000/register/' + today, (res) => {
 		
     		let data = '';
