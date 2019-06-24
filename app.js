@@ -2,11 +2,19 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var http = require('http');
+//var http = require('http');
+
+// Probando servidor Seguro
+var fs = require('fs');
+var https = require('https');
 
 // Inicializar variables
 var app = express();
-var server = http.createServer(app);
+//var server = http.createServer(app);
+var server = https.createServer({
+  key: fs.readFileSync( 'morgados.key' ),
+  cert: fs.readFileSync( 'morgados.crt' )
+}, app);
 
 var cronJob = require( './cronjobs/cronDaily' );
 
@@ -32,8 +40,8 @@ var notificationRoutes = require('./routes/notification');
 
 
 // ### AMBIENTE LOCAL
-// mongoose.connect( 'mongodb://localhost:27017/morgadosDB', { useNewUrlParser: true }, ( err, res ) => {
-mongoose.connect( 'mongodb+srv://dbUser:dbUserPassword@morgado-vsfwv.mongodb.net/test?retryWrites=true&w=majority',  { useNewUrlParser: true }, ( err, res ) => {    
+ mongoose.connect( 'mongodb://localhost:27017/morgadosDB', { useNewUrlParser: true }, ( err, res ) => {
+// mongoose.connect( 'mongodb+srv://dbUser:dbUserPassword@morgado-vsfwv.mongodb.net/test?retryWrites=true&w=majority',  { useNewUrlParser: true }, ( err, res ) => {    
 
     if ( err ) throw err;
 

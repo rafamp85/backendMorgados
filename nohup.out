@@ -1,0 +1,48 @@
+2019-06-18T18:27:55.924-0500 I CONTROL  [initandlisten] MongoDB starting : pid=28120 port=27017 dbpath=/var/lib/mongo 64-bit host=localhost.localdomain
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten] db version v3.6.13
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten] git version: db3c76679b7a3d9b443a0e1b3e45ed02b88c539f
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1e-fips 11 Feb 2013
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten] allocator: tcmalloc
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten] modules: none
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten] build environment:
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten]     distmod: rhel70
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten]     distarch: x86_64
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten]     target_arch: x86_64
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten] options: { replication: { replSet: "rs0" }, storage: { dbPath: "/var/lib/mongo" } }
+2019-06-18T18:27:55.925-0500 I STORAGE  [initandlisten] exception in initAndListen: DBPathInUse: Unable to lock the lock file: /var/lib/mongo/mongod.lock (Resource temporarily unavailable). Another mongod instance is already running on the /var/lib/mongo directory, terminating
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten] now exiting
+2019-06-18T18:27:55.925-0500 I CONTROL  [initandlisten] shutting down with code:100
+
+> backend-morgados@1.0.0 start /root/gasApp/backendMorgados
+> node app.js
+
+Express server puerto 3000: [32monline[0m
+Database is: [32monline[0m
+(node:33475) UnhandledPromiseRejectionWarning: Error al cargar Registros
+(node:33475) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:33475) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: socket hang up
+    at createHangUpError (_http_client.js:323:15)
+    at Socket.socketOnEnd (_http_client.js:426:23)
+    at Socket.emit (events.js:203:15)
+    at endReadableNT (_stream_readable.js:1129:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Emitted 'error' event at:
+    at Socket.socketOnEnd (_http_client.js:426:9)
+    at Socket.emit (events.js:203:15)
+    at endReadableNT (_stream_readable.js:1129:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! backend-morgados@1.0.0 start: `node app.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the backend-morgados@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2019-06-20T07_17_00_016Z-debug.log
