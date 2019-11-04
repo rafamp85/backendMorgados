@@ -18,7 +18,7 @@
     "express": "^4.16.4",
     "https": "^1.0.0",
     "moment": "^2.24.0",
-    "mongoose": "^5.5.1",
+    "mongoose": "^5.7.5",
     "mongoose-unique-validator": "^2.0.2",
     "node-cron": "^2.0.3",
     "web-push": "^3.3.5"
